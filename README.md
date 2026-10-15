@@ -9,4 +9,4 @@ A structured, machine-readable dataset designed for English language learners (C
 
 ## 🏫 B2B Licensing & Academic Access
 For full dataset access, API keys, or Institutional Site Licenses, please contact: `danielenglish19960118@gmail.com'
-<a rel="me" href="https://mastodon.social/@danielenglish19960118">Mastodon</a>
+https://mastodon.social/@danielenglish19960118
