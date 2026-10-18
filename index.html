@@ -3,205 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lexicon | Germanic Cognates & Scots Etymology Research</title>
+    <title>Germanic Etymology & Scots Cognates Database | B2B API & Data Portal</title>
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0284c7;
-            --border: #334155;
+            --primary: #1e3a8a;
+            --accent: #2563eb;
+            --bg-card: #f8fafc;
+            --border: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            line-height: 1.6; 
+            max-width: 860px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+            color: var(--text-dark); 
+            background-color: #ffffff;
         }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 40px auto;
-        }
-
-        header {
-            text-align: center;
-            padding-bottom: 40px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .badge {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            margin-bottom: 16px;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.5px;
-        }
-
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        @media (min-width: 640px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            color: var(--accent);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 16px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: #0f172a;
-            font-weight: 600;
-            padding: 10px 18px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: background-color 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-            color: #ffffff;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background-color: transparent;
-        }
-
-        .about-section {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
-            margin-top: 30px;
-        }
-
-        .about-section h2 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: var(--text-main);
-        }
-
-        .about-section p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-        }
-
-        footer {
-            margin-top: 60px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
+        header { border-bottom: 2px solid var(--border); padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { color: var(--primary); font-size: 2em; margin-bottom: 8px; }
+        .subtitle { color: var(--text-muted); font-size: 1.1em; margin-top: 0; }
+        .badge { background: #dbeafe; color: #1e40af; font-size: 0.85em; font-weight: 600; padding: 4px 10px; border-radius: 9999px; display: inline-block; margin-bottom: 15px; }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 22px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .word-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 12px; }
+        .word { font-size: 1.4em; font-weight: 700; color: var(--primary); }
+        .tag { font-size: 0.8em; background: #e0e7ff; color: #3730a3; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+        .field { margin: 8px 0; }
+        .field-label { font-weight: 600; color: #475569; width: 180px; display: inline-block; }
+        .code-box { background: #0f172a; color: #38bdf8; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em; overflow-x: auto; margin: 25px 0; }
+        .cta-box { text-align: center; margin-top: 40px; padding: 35px 20px; background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-radius: 12px; border: 1px solid #bfdbfe; }
+        .cta-btn { display: inline-block; background: var(--accent); color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1em; transition: background 0.2s ease; box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3); }
+        .cta-btn:hover { background: #1d4ed8; }
+        .trust-label { font-size: 0.85em; color: var(--text-muted); margin-top: 15px; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <span class="badge">INDEPENDENT RESEARCH PORTAL</span>
-            <h1>Germanic Etymology & Scots Lexicon</h1>
-            <p class="subtitle">Systematic root decoding, sound shift analysis, and high-tier SAT/GRE vocabulary mapping.</p>
-        </header>
+    <header>
+        <span class="badge">B2B Educational Data Infrastructure</span>
+        <h1>🏛️ Germanic Etymology & Scots Cognates Portal</h1>
+        <p class="subtitle">Structured comparative linguistics dataset designed for GRE/SAT preparation, EdTech applications, and LLM/AI Agent integration.</p>
+    </header>
 
-        <div class="grid">
-            <div class="card">
-                <h3>📖 Institutional Sample Pack</h3>
-                <p>Download the free 50-word Germanic cognate matrix and Scots etymological chart in PDF format.</p>
-                <a href="#" class="btn">Download PDF Sample</a>
-            </div>
-
-            <div class="card">
-                <h3>🎴 Anki Flashcard Suite</h3>
-                <p>Structured spaced-repetition deck mapping English test vocabulary to core Germanic roots.</p>
-                <a href="#" class="btn btn-outline">Access Anki Deck</a>
-            </div>
+    <!-- Word 1 -->
+    <div class="card">
+        <div class="word-header">
+            <span class="word">1. Uncouth</span>
+            <span class="tag">GRE / SAT Core</span>
         </div>
+        <div class="field"><span class="field-label">Proto-Germanic:</span> *unkunþaz (unknown, unfamiliar)</div>
+        <div class="field"><span class="field-label">Grimm's Law Shift:</span> Loss of nasal sound before fricative (*kunþaz → cūð)</div>
+        <div class="field"><span class="field-label">Scots Cognate:</span> <em>Unco</em> (strange, unusual, extraordinary)</div>
+        <div class="field"><span class="field-label">Pedagogical Hook:</span> Evolved from "unknown" to "unrefined/lacking manners".</div>
+    </div>
 
-        <div class="about-section">
-            <h2>About the Research</h2>
-            <p>This repository provides a structured approach to vocabulary acquisition through historical linguistics. By analyzing Germanic sound shifts (Grimm's Law) and Scots cognates, learners can decode advanced English vocabulary via underlying root logic rather than rote memorization.</p>
-            <p>Designed for academic researchers, international curriculum coordinators, and advanced exam candidates (GRE/SAT/IELTS).</p>
+    <!-- Word 2 -->
+    <div class="card">
+        <div class="word-header">
+            <span class="word">2. Ghastly</span>
+            <span class="tag">High Frequency</span>
         </div>
+        <div class="field"><span class="field-label">Proto-Germanic:</span> *gaistaz (ghost, spirit, astonishment)</div>
+        <div class="field"><span class="field-label">Grimm's Law Shift:</span> Pre-Germanic *gʰoizd- os → PGmc *gaistaz</div>
+        <div class="field"><span class="field-label">Scots Cognate:</span> <em>Ghaist</em> (ghost / spirit)</div>
+        <div class="field"><span class="field-label">Pedagogical Hook:</span> Directly connected to "ghost"; causing horror or intense fear.</div>
+    </div>
 
-        <footer>
-            <p>© 2026 Yang Cheng-han — Independent Etymology Research Portal</p>
-            <p style="margin-top: 6px;">Contact & Institutional Licensing: <a href="mailto:contact@english-learning-lexicon.pages.dev">contact@english-learning-lexicon.pages.dev</a></p>
-        </footer>
+    <!-- Word 3 -->
+    <div class="card">
+        <div class="word-header">
+            <span class="word">3. Weird</span>
+            <span class="tag">Etymological Shift</span>
+        </div>
+        <div class="field"><span class="field-label">Proto-Germanic:</span> *wurdiz (fate, destiny)</div>
+        <div class="field"><span class="field-label">Grimm's Law Shift:</span> PIE *wert- (to turn) → PGmc *wurdiz</div>
+        <div class="field"><span class="field-label">Scots Cognate:</span> <em>Weird / Wyrd</em> (fate, destiny, uncanny power)</div>
+        <div class="field"><span class="field-label">Pedagogical Hook:</span> Shifted from "controlling fate" (Macbeth's Weird Sisters) to "strange".</div>
+    </div>
+
+    <!-- JSON Schema Preview for B2B Clients -->
+    <h3>⚙️ Developer API JSON Schema Sample</h3>
+    <p style="color: var(--text-muted); font-size: 0.9em;">All entries are provided in clean, machine-readable JSON format for seamless API ingestion.</p>
+    <div class="code-box">
+{
+  "word": "uncouth",
+  "proto_germanic": "*unkunþaz",
+  "definition": "lacking good manners, refinement, or grace",
+  "grimm_law_note": "Loss of nasal sound before fricative (*kunþaz -> cūð)",
+  "scots_cognate": {
+    "word": "unco",
+    "meaning": "strange, extraordinary"
+  },
+  "sat_gre_hook": "Evolved from 'unknown' to 'unrefined'."
+}
+    </div>
+
+    <!-- Call To Action Block -->
+    <div class="cta-box">
+        <h2>Unlock 2,000+ Full Structured Datasets</h2>
+        <p>Get instant JSON/CSV database access and AI API integration for your institution or platform.</p>
+        
+        <!-- Polar 刷卡金流按鈕 -->
+        <a href="https://buy.polar.sh/polar_cl_k03omc1CuliGd7NIv4BjPF8JrR27PFeKz3Hpi2Xeq8p" target="_blank" class="cta-btn">
+            Pay Setup Deposit ($250 USD)
+        </a>
+
+        <div class="trust-label">
+            🔒 Instant Digital Delivery | Secure Checkout via Polar | 100% Satisfaction Guarantee
+        </div>
     </div>
 
 </body>
